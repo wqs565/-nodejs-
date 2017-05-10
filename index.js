@@ -8,8 +8,10 @@ app.get('/', function(req, res){
 });
 
 app.get('/socket', function(req, res){
-	fs.readFile('/index.html', 'utf-8',function (err, data) {//读取内容
-		if (err) throw err;
+	fs.readFile('./index.html', 'utf-8',function (err, data) {//读取内容
+		if (err) {
+			console.log(err);
+		}
 		res.writeHead(200, {"Content-Type": "text/html"});//注意这里
 		res.write(data);
 		res.end();
